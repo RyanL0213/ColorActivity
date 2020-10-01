@@ -27,18 +27,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        View currentLayout =
-                findViewById(R.id.currentlayout);
-
-
-        currentLayout.setBackgroundColor(Color.RED);
 
         colorname = findViewById(R.id.Helloworld);
         colorselection = findViewById(R.id.colorselection);
-        listview = findViewById(R.id.listview);
 
 
         color = new ArrayList<>();
+        color.add("Choose a color");
         color.add("Red");
         color.add("Black");
         color.add("Blue");
@@ -50,14 +45,72 @@ public class MainActivity extends AppCompatActivity {
         color.add("Magenta");
         color.add("Yellow");
 
+
         final BaseAdapter adapter = new ColorAdapter(this,color);
 
-        listview.setAdapter(adapter);
+        colorselection.setAdapter(adapter);
+        View currentLayout = findViewById(R.id.currentlayout);
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        colorselection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            colorname.setText(adapterView.getItemAtPosition(i).toString());
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                View currentLayout = findViewById(R.id.currentlayout);
+                switch(adapterView.getItemAtPosition(i).toString()){
+                    case "Choose a color":
+                        currentLayout.setBackgroundColor(Color.WHITE);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Red":
+                        currentLayout.setBackgroundColor(Color.RED);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Black":
+                        currentLayout.setBackgroundColor(Color.BLACK);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Blue":
+                        currentLayout.setBackgroundColor(Color.BLUE);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Cyan":
+                        currentLayout.setBackgroundColor(Color.CYAN);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Dark Grey":
+                        currentLayout.setBackgroundColor(Color.DKGRAY);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "White":
+                        currentLayout.setBackgroundColor(Color.WHITE);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Green":
+                        currentLayout.setBackgroundColor(Color.GREEN);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Light Grey":
+                        currentLayout.setBackgroundColor(Color.LTGRAY);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Magenta":
+                        currentLayout.setBackgroundColor(Color.MAGENTA);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case "Yellow":
+                        currentLayout.setBackgroundColor(Color.YELLOW);
+                        view.setBackgroundColor(Color.WHITE);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 

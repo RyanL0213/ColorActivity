@@ -19,17 +19,18 @@ public class ColorAdapter extends BaseAdapter {
         this.context = context;
         this.color = color;
 
-        colors = new int[10];
-        colors[0] = Color.RED;
-        colors[1] = Color.BLACK;
-        colors[2] = Color.BLUE;
-        colors[3] = Color.CYAN;
-        colors[4] = Color.DKGRAY;
-        colors[5] = Color.WHITE;
-        colors[6] = Color.GREEN;
-        colors[7] = Color.LTGRAY;
-        colors[8] = Color.MAGENTA;
-        colors[9] = Color.YELLOW;
+        colors = new int[11];
+        colors[0] = Color.WHITE;
+        colors[1] = Color.RED;
+        colors[2] = Color.BLACK;
+        colors[3] = Color.BLUE;
+        colors[4] = Color.CYAN;
+        colors[5] = Color.DKGRAY;
+        colors[6] = Color.WHITE;
+        colors[7] = Color.GREEN;
+        colors[8] = Color.LTGRAY;
+        colors[9] = Color.MAGENTA;
+        colors[10] = Color.YELLOW;
     }
     @Override
     public int getCount() {
@@ -62,5 +63,11 @@ public class ColorAdapter extends BaseAdapter {
         textview.setBackgroundColor(colors[i%colors.length]);
 
         return textview;
+    }
+
+    public View getDroppedDownView(int i, View view,ViewGroup viewGroup){
+        View v = getView(i,view,viewGroup);
+        v.setBackgroundColor(Color.WHITE);
+        return v;
     }
 }
