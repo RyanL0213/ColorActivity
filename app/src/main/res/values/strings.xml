@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ColorActivity</string>
+    <string name="welcome_to_the_color_activity">Welcome to the Color Activity</string>
+</resources>
